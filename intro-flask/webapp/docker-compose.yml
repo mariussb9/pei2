@@ -1,0 +1,26 @@
+version: '2.1'
+
+services:
+
+  redisserver:
+    image: redis
+    expose:
+      - "6379"
+    networks:
+      - mynet
+
+  myapp:
+    build:
+      context: .
+    image: myapp:latest
+    environment:
+      - REDIS_LOCATION=redisserver
+    ports:
+      - "80:5000"
+    depends_on:
+      - redisserver
+    networks:
+      - mynet
+networks:
+  mynet:
+    name: mynet-network

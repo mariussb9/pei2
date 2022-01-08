@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset="utf-8" />
+  <title>Mi primera aplicación web</title>
+  <link type="text/css" rel="stylesheet"
+        href="{{ url_for('static',
+              filename='hello.css')}}" />
+</head>
+<body>
+	<div id="center-div">
+		<h1> Hola {{info.username}}! Vengo a contarte que Neymar es el mejor jugador de la historia del futbol!</h1>
+		<p>Nos has visitado {{info.visit_counter}}</p>
+	</div>
+</body>
+</html>
